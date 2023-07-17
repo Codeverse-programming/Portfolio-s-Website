@@ -1,0 +1,693 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #cb5f08;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #f79784;
+    --secondary: #75a9d6;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --black: #000;
+    --gainsboro: #dcdcdc;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family: 'Roboto Mono', monospace;
+    --second-font: 'Inconsolata', monospace;
+    --third-font: 'Raleway', sans-serif;
+    --shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.15) !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.left-sidebar {
+    background: var(--black);
+    /* Black*/
+    box-shadow: var(--shadow);
+    float: left;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    width: 6%;
+    padding-top: 2em;
+    line-height: 1.5;
+    z-index: 99;
+    text-align: center;
+    border-right: 5px dotted var(--gray-dark);
+    margin: 0 auto;
+}
+
+.left-sidebar .icon {
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.left-nav i {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+    display: block;
+    transition: 0.3s;
+}
+
+/* The side navigation menu */
+.sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 99;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 6%;
+    background-color: var(--black);
+    /* border-left: dotted 10px var(--orange); */
+    /* Black*/
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 20px;
+    /* padding-left: 1em; */
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    text-align: left;
+    margin: 0 auto;
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.left-sidebar #show-burger:checked~.sidenav {
+    width: 40%;
+    overflow: hidden;
+}
+
+/* The navigation menu links */
+.sidenav .links a {
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: var(--white);
+    font-family: var(--text-font);
+    font-weight: bold;
+    line-height: 3.5;
+    text-transform: uppercase;
+    /* display: block; */
+    transition: 0.3s;
+    position: relative;
+}
+
+.sidenav .links a:hover {
+    color: var(--orange);
+}
+
+.sidenav .links ul li {
+    position: relative;
+}
+
+.sidenav .links {
+    margin: 1em 0 0;
+}
+
+/* When you mouse over the navigation links, change their color */
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 2rem;
+    color: var(--white);
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 0 0px 0 20px;
+}
+
+.logo {
+    line-height: 2;
+}
+
+.logo img {
+    width: 60%;
+}
+
+.logo h1 {
+    color: var(--white);
+    font-family: var(--font-family);
+    letter-spacing: 5px;
+    font-size: 1.5rem;
+}
+
+.subscribe {
+    position: absolute;
+    bottom: 5%;
+    margin: 0 0 0 0.5em;
+}
+
+.subscribe h3 {
+    color: var(--gray-dark);
+    text-transform: uppercase;
+    color: var(--gray);
+    font-family: var(--text-font);
+    font-size: 1rem;
+    margin: 0 0 0.5em 0;
+    /* width: 220px; */
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.subscribe input {
+    background: none;
+    border: 1px solid var(--gray);
+    /* width: 100%; */
+    padding: 1em;
+}
+
+.subscribe input::placeholder {
+    font-family: var(--text-font);
+    color: var(--gray);
+}
+
+.subscribe input:focus {
+    border: 1px solid var(--gray);
+    outline: none;
+}
+
+.aside-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* hero section */
+.banner {
+    background-color: var(--orange);
+    border-left: 5px solid var(--gainsboro);
+    padding: 1.5em 0 2em;
+}
+
+.banner-img {
+    display: none;
+}
+
+.banner .heading {
+    padding: 1.5em 0 2.5em;
+}
+
+.banner .heading h1 {
+    font-family: var(--font-family);
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.banner .heading h5 {
+    font-family: var(--font-family);
+    color: var(--white);
+    text-transform: capitalize;
+    font-size: 1rem;
+}
+
+.profile h5 {
+    color: var(--white);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.profile a {
+    text-decoration: none;
+}
+
+.profile a h6 {
+    color: var(--white);
+    font-family: var(--font-family);
+}
+
+.profile h6 {
+    color: var(--white);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    font-size: 0.8rem;
+}
+
+.social {
+    display: flex;
+    gap: 30px;
+}
+
+.social a i {
+    font-size: 1.3rem;
+    color: var(--gray-dark);
+}
+
+/* conference section */
+.conference {
+    padding: 5em 0 0;
+    background-color: var(--black);
+}
+
+.text h1 {
+    color: var(--gray);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.text {
+    margin-bottom: 2em;
+}
+
+/* .line,
+.line-1,
+.line-4 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 170px;
+    background-color: var(--black);
+}
+
+.line-1,
+.line-2,
+.line-3 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 197px;
+    background-color: var(--black);
+}
+
+.line-6 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 150px;
+    background-color: var(--black);
+}
+
+.line-5 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 226px;
+    background-color: var(--black);
+} */
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid var(--orange);
+    background: transparent;
+}
+
+.engagements h6 {
+    font-family: var(--font-family);
+    color: var(--white);
+}
+
+.engagements small {
+    color: var(--white);
+    font-family: var(--second-font);
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.engagements p {
+    font-family: var(--third-font);
+    font-weight: bold;
+    line-height: 1.8;
+    color: var(--white);
+}
+
+/* conference section */
+.facts {
+    padding: 5em 0 0;
+    background-color: var(--black);
+}
+
+.text h1 {
+    color: var(--gray);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.text {
+    margin-bottom: 2em;
+}
+
+/* .line,
+.line-1,
+.line-4 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 170px;
+    background-color: var(--white);
+}
+
+.line-1,
+.line-2,
+.line-3 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 197px;
+    background-color: var(--white);
+}
+
+.line-6 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 150px;
+    background-color: var(--white);
+}
+
+.line-5 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 226px;
+    background-color: var(--white);
+} */
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid var(--orange);
+    background: transparent;
+}
+
+.fun h6 {
+    font-family: var(--font-family);
+    color: var(--white);
+}
+
+.fun small {
+    color: var(--white);
+    font-family: var(--second-font);
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.fun p {
+    font-family: var(--third-font);
+    font-weight: bold;
+    color: var(--white);
+    line-height: 1.8;
+}
+
+/* projects section */
+.projects {
+    padding: 5em 1em 2em;
+    background-color: var(--black);
+}
+
+.texts h1 {
+    color: var(--white);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    margin-bottom: 2em;
+    font-weight: bold;
+}
+
+.text {
+    margin-bottom: 2em;
+}
+
+.select a {
+    color: var(--white);
+    font-family: var(--font-family);
+    display: block;
+    margin-bottom: 1.5em;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.select a:hover {
+    color: purple;
+}
+
+.select a:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 3px;
+    background-color: purple;
+}
+
+.patients {
+    background-color: var(--black);
+    /* padding: 2em 1em 2.5em; */
+    border-bottom: 1px solid var(--gainsboro);
+    margin-bottom: 2.5em;
+}
+
+.patients img {
+    width: 100%;
+    border-bottom: 1px solid var(--gainsboro);
+}
+
+.patients:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.patients h3 {
+    font-family: var(--font-family);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.patients p {
+    font-family: var(--third-font);
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: var(--white);
+}
+
+.patients h6 {
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 2em;
+    color: var(--white);
+}
+
+.patients button {
+    background-color: var(--orange);
+    border-radius: 5px;
+    padding: 0.1em 0.3em;
+    color: var(--white);
+    border: none;
+    outline: navajowhite;
+    box-shadow: var(--shadow);
+    font-family: var(--third-font);
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.repo {
+    margin-bottom: 3em;
+}
+
+.repo a {
+    display: block;
+    color: white;
+    font-family: var(--font-family);
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.hide {
+    display: none;
+}
+
+.active {
+    color: purple;
+}
+
+/* footer section */
+.footer {
+    background-color: var(--orange);
+    padding: 2em 0;
+}
+
+.footer h5 {
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.footer h6 {
+    font-size: 0.85rem;
+}
+
+@media only screen and (min-width:1200px) {
+    .profile h6 {
+        inline-size: 80%;
+    }
+
+    .banner .heading {
+        padding: 0em 0 2.5em;
+    }
+}
+
+@media only screen and (min-width:991px) {
+    .banner-img {
+        display: grid;
+    }
+
+    .banner {
+        padding: 8em 0 2em;
+    }
+
+    .left-sidebar #show-burger:checked~.sidenav {
+        width: 10%;
+    }
+}
+
+@media only screen and (min-width:790px) {
+
+    .patients img {
+        border-right: 1px solid var(--gainsboro);
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .banner-img img {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .profile h5 {
+        font-size: 1rem;
+    }
+
+    .profile h6 {
+        font-size: 1rem;
+    }
+
+    #main {
+        transition: margin-left .5s;
+        padding: 0 0px 0 3em;
+    }
+
+    .banner {
+        padding: 3.5em 1em 2em;
+    }
+
+    .conference,
+    .facts,
+    .projects,
+    .footer {
+        padding: 4.5em 1em 2em;
+    }
+
+    .left-sidebar #show-burger:checked~.sidenav {
+        width: 20%;
+    }
+
+}
