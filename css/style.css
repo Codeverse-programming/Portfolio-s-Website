@@ -1,0 +1,605 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6c757d;
+    --gray-dark: #343a40;
+    --primary: #f79784;
+    --secondary: #75a9d6;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --black: #000;
+    --gainsboro: #dcdcdc;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --font-family: 'Roboto Mono', monospace;
+    --second-font: 'Inconsolata', monospace;
+    --third-font: 'Raleway', sans-serif;
+    --shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.15) !important;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+header .containers {
+    padding: 2em 0 0em 1em;
+    background-color: var(--black);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    z-index: 99;
+    transform: translateY(calc(-100% - 10px));
+    transition: transform 0.5s ease;
+}
+
+.header.bg-reveal::before {
+    transform: translateY(0);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    margin-left: 0;
+    overflow: hidden;
+    width: 0%;
+    background-color: rgba(0, 0, 0, 0.7);
+    transition: 0.5s ease;
+    color: black;
+    z-index: 1;
+}
+
+.containers #show-burger:checked~nav {
+    width: 100%;
+}
+
+nav ul {
+    position: relative;
+    top: 10%;
+    text-align: center;
+}
+
+nav ul li {
+    padding: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    transition: 0.3s;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--white);
+    line-height: 2.5;
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 1.3rem;
+}
+
+i {
+    color: var(--gray);
+    font-size: 1rem;
+}
+
+.unshow {
+    display: flex;
+}
+
+nav .closebtn {
+    position: absolute;
+    top: 1%;
+    bottom: 0;
+    right: 7%;
+    font-size: 1rem;
+    color: var(--white);
+}
+
+/* hero section */
+.banner {
+    background-color: var(--black);
+    padding: 4.5em 0 2em;
+}
+
+.banner-img {
+    display: none;
+}
+
+.banner .heading {
+    padding: 1.5em 0 2.5em;
+}
+
+.banner .heading h1 {
+    font-family: var(--font-family);
+    color: var(--white);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.banner .heading h5 {
+    font-family: var(--font-family);
+    color: var(--white);
+    text-transform: capitalize;
+    font-size: 1rem;
+}
+
+.profile h5 {
+    color: var(--gray);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.profile a {
+    text-decoration: none;
+}
+
+.profile a h6 {
+    color: var(--white);
+    font-family: var(--font-family);
+}
+
+.profile h6 {
+    color: var(--white);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    font-size: 0.8rem;
+}
+
+.social {
+    display: flex;
+    gap: 30px;
+}
+
+.social a i {
+    font-size: 1.3rem;
+}
+
+/* conference section */
+.conference {
+    padding: 5em 0 0;
+}
+
+.text h1 {
+    color: var(--gray);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.text {
+    margin-bottom: 2em;
+}
+
+.line,
+.line-1,
+.line-4 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 170px;
+    background-color: black;
+}
+
+.line-1,
+.line-2,
+.line-3 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 197px;
+    background-color: black;
+}
+
+.line-6 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 150px;
+    background-color: black;
+}
+
+.line-5 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 226px;
+    background-color: black;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background: transparent;
+}
+
+.engagements h6 {
+    font-family: var(--font-family);
+}
+
+.engagements small {
+    color: var(--gray);
+    font-family: var(--second-font);
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.engagements p {
+    font-family: var(--third-font);
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+/* conference section */
+.facts {
+    padding: 5em 0 0;
+}
+
+.text h1 {
+    color: var(--gray);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.text {
+    margin-bottom: 2em;
+}
+
+.line,
+.line-1,
+.line-4 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 170px;
+    background-color: black;
+}
+
+.line-1,
+.line-2,
+.line-3 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 197px;
+    background-color: black;
+}
+
+.line-6 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 150px;
+    background-color: black;
+}
+
+.line-5 {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 0.7em;
+    width: 2px;
+    height: 226px;
+    background-color: black;
+}
+
+.circle {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid black;
+    background: transparent;
+}
+
+.fun h6 {
+    font-family: var(--font-family);
+}
+
+.fun small {
+    color: var(--gray);
+    font-family: var(--second-font);
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.fun p {
+    font-family: var(--third-font);
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+/* projects section */
+.projects {
+    padding: 5em 1em 2em;
+}
+
+.texts h1 {
+    color: var(--gray);
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    margin-bottom: 2em;
+    font-weight: bold;
+}
+
+.text {
+    margin-bottom: 2em;
+}
+
+.select a {
+    color: var(--gray);
+    font-family: var(--font-family);
+    display: block;
+    margin-bottom: 1.5em;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.select a:hover {
+    color: purple;
+}
+
+.select a:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 3px;
+    background-color: purple;
+}
+
+.patients {
+    background-color: var(--white);
+    /* padding: 2em 1em 2.5em; */
+    border: 1px solid var(--gainsboro);
+    margin-bottom: 2.5em;
+}
+
+.patients img {
+    width: 100%;
+    border-bottom: 1px solid var(--gainsboro);
+}
+
+.patients:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.patients h3 {
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.patients p {
+    font-family: var(--third-font);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.patients h6 {
+    text-transform: uppercase;
+    font-family: var(--font-family);
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-bottom: 2em;
+}
+
+.patients button {
+    background-color: white;
+    border-radius: 5px;
+    padding: 0.1em 0.3em;
+    border: none;
+    outline: navajowhite;
+    box-shadow: var(--shadow);
+    font-family: var(--third-font);
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.repo {
+    margin-bottom: 3em;
+}
+
+.repo a {
+    display: block;
+    color: blueviolet;
+    font-family: var(--font-family);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.hide {
+    display: none;
+}
+
+.active {
+    color: purple;
+}
+
+/* footer section */
+.footer {
+    background-color: var(--black);
+    padding: 4em 0;
+}
+
+.footer h5 {
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.footer h6 {
+    font-size: 0.9rem;
+}
+
+
+@media only screen and (min-width:1200px) {
+    .profile h6 {
+        inline-size: 80%;
+    }
+
+    .banner .heading {
+        padding: 0em 0 2.5em;
+    }
+}
+
+@media only screen and (min-width:991px) {
+    .banner-img {
+        display: grid;
+    }
+
+    header .containers {
+        padding: 0;
+        background-color: var(--black);
+        position: fixed;
+        padding: 1em 0em 0.5em 5em;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav {
+        position: unset;
+        width: 100%;
+        /* height: auto; */
+        background: none;
+        flex: 1;
+        text-align: center;
+    }
+
+    nav ul {
+        width: 100%;
+        position: unset;
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    nav ul li a {
+        color: white;
+        font-size: 1rem;
+        position: relative;
+    }
+
+    .unshow {
+        display: none;
+    }
+    .banner{
+        padding: 8em 0 2em;
+    }
+}
+
+@media only screen and (min-width:790px) {
+    .projects {
+        /* background-color: rebeccapurple; */
+    }
+
+    .patients img {
+        border-right: 1px solid var(--gainsboro);
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .banner-img img {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .profile h5 {
+        font-size: 1rem;
+    }
+
+    .profile h6 {
+        font-size: 1rem;
+    }
+
+}
