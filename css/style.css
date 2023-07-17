@@ -8,8 +8,13 @@
     box-sizing: border-box;
 }
 
-a {
-    text-decoration: none;
+body {
+    background-color: black;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
 }
 
 :root {
@@ -18,7 +23,7 @@ a {
     --purple: #6f42c1;
     --pink: #e83e8c;
     --red: #dc3545;
-    --orange: #fd7e14;
+    --orange: #cb5f08;
     --yellow: #ffc107;
     --green: #28a745;
     --teal: #20c997;
@@ -47,102 +52,190 @@ a {
     --shadow: 0 0.1rem 0.5rem rgba(0, 0, 0, 0.15) !important;
 }
 
+a {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
 input[type="checkbox"] {
     display: none;
 }
 
-header .containers {
-    padding: 2em 0 0em 1em;
-    background-color: var(--black);
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    width: 100%;
-}
-
-.header::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100px;
-    width: 100%;
-    background-color: var(--white);
+.left-sidebar {
+    background: var(--black);
+    /* Black*/
     box-shadow: var(--shadow);
-    z-index: 99;
-    transform: translateY(calc(-100% - 10px));
-    transition: transform 0.5s ease;
-}
-
-.header.bg-reveal::before {
-    transform: translateY(0);
-}
-
-nav {
+    float: left;
+    min-height: 100%;
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    margin-left: 0;
-    overflow: hidden;
-    width: 0%;
-    background-color: rgba(0, 0, 0, 0.7);
-    transition: 0.5s ease;
-    color: black;
-    z-index: 1;
-}
-
-.containers #show-burger:checked~nav {
-    width: 100%;
-}
-
-nav ul {
-    position: relative;
-    top: 10%;
+    width: 6%;
+    padding-top: 2em;
+    line-height: 1.5;
+    z-index: 99;
     text-align: center;
+    border-right: 5px dotted var(--gray-dark);
+    margin: 0 auto;
 }
 
-nav ul li {
-    padding: 8px;
-    font-size: 1.5rem;
+.left-sidebar .icon {
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.left-nav i {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
     font-weight: bold;
     display: block;
     transition: 0.3s;
 }
 
-nav ul li a {
+/* The side navigation menu */
+.sidenav {
+    height: 100%;
+    /* 100% Full-height */
+    width: 0;
+    /* 0 width - change this with JavaScript */
+    position: fixed;
+    /* Stay in place */
+    z-index: 99;
+    /* Stay on top */
+    top: 0;
+    /* Stay at the top */
+    left: 6%;
+    background-color: var(--black);
+    /* border-left: dotted 10px var(--orange); */
+    /* Black*/
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* Disable horizontal scroll */
+    padding-top: 20px;
+    /* padding-left: 1em; */
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    text-align: left;
+    margin: 0 auto;
+    /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.left-sidebar #show-burger:checked~.sidenav {
+    width: 40%;
+    overflow: hidden;
+}
+
+/* The navigation menu links */
+.sidenav .links a {
     text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 2px;
     color: var(--white);
-    line-height: 2.5;
+    font-family: var(--text-font);
+    font-weight: bold;
+    line-height: 3.5;
     text-transform: uppercase;
-    font-family: var(--font-family);
-    font-size: 1.3rem;
+    /* display: block; */
+    transition: 0.3s;
+    position: relative;
 }
 
-i {
-    color: var(--gray);
-    font-size: 1rem;
+.sidenav .links a:hover {
+    color: var(--orange);
 }
 
-.unshow {
-    display: flex;
+.sidenav .links ul li {
+    position: relative;
 }
 
-nav .closebtn {
+.sidenav .links {
+    margin: 1em 0 0;
+}
+
+/* When you mouse over the navigation links, change their color */
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
     position: absolute;
-    top: 1%;
-    bottom: 0;
-    right: 7%;
-    font-size: 1rem;
+    top: 0;
+    right: 25px;
+    font-size: 2rem;
     color: var(--white);
+    cursor: pointer;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 0 0px 0 20px;
+}
+
+.logo {
+    line-height: 2;
+}
+
+.logo img {
+    width: 60%;
+}
+
+.logo h1 {
+    color: var(--white);
+    font-family: var(--font-family);
+    letter-spacing: 5px;
+    font-size: 1.5rem;
+}
+
+.subscribe {
+    position: absolute;
+    bottom: 5%;
+    margin: 0 0 0 0.5em;
+}
+
+.subscribe h3 {
+    color: var(--gray-dark);
+    text-transform: uppercase;
+    color: var(--gray);
+    font-family: var(--text-font);
+    font-size: 1rem;
+    margin: 0 0 0.5em 0;
+    /* width: 220px; */
+    object-fit: contain;
+    overflow: hidden;
+}
+
+.subscribe input {
+    background: none;
+    border: 1px solid var(--gray);
+    /* width: 100%; */
+    padding: 1em;
+}
+
+.subscribe input::placeholder {
+    font-family: var(--text-font);
+    color: var(--gray);
+}
+
+.subscribe input:focus {
+    border: 1px solid var(--gray);
+    outline: none;
+}
+
+.aside-img {
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 /* hero section */
 .banner {
-    background-color: var(--black);
-    padding: 4.5em 0 2em;
+    background-color: var(--orange);
+    border-left: 5px solid var(--gainsboro);
+    padding: 1.5em 0 2em;
 }
 
 .banner-img {
@@ -169,11 +262,11 @@ nav .closebtn {
 }
 
 .profile h5 {
-    color: var(--gray);
+    color: var(--white);
     text-transform: uppercase;
     font-family: var(--font-family);
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .profile a {
@@ -199,11 +292,13 @@ nav .closebtn {
 
 .social a i {
     font-size: 1.3rem;
+    color: var(--gray-dark);
 }
 
 /* conference section */
 .conference {
     padding: 5em 0 0;
+    background-color: var(--black);
 }
 
 .text h1 {
@@ -219,7 +314,7 @@ nav .closebtn {
     margin-bottom: 2em;
 }
 
-.line,
+/* .line,
 .line-1,
 .line-4 {
     display: block;
@@ -229,7 +324,7 @@ nav .closebtn {
     top: 0.7em;
     width: 2px;
     height: 170px;
-    background-color: black;
+    background-color: var(--black);
 }
 
 .line-1,
@@ -242,7 +337,7 @@ nav .closebtn {
     top: 0.7em;
     width: 2px;
     height: 197px;
-    background-color: black;
+    background-color: var(--black);
 }
 
 .line-6 {
@@ -253,7 +348,7 @@ nav .closebtn {
     top: 0.7em;
     width: 2px;
     height: 150px;
-    background-color: black;
+    background-color: var(--black);
 }
 
 .line-5 {
@@ -264,23 +359,24 @@ nav .closebtn {
     top: 0.7em;
     width: 2px;
     height: 226px;
-    background-color: black;
-}
+    background-color: var(--black);
+} */
 
 .circle {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 2px solid var(--orange);
     background: transparent;
 }
 
 .engagements h6 {
     font-family: var(--font-family);
+    color: var(--white);
 }
 
 .engagements small {
-    color: var(--gray);
+    color: var(--white);
     font-family: var(--second-font);
     display: block;
     margin-bottom: 0.5em;
@@ -292,11 +388,13 @@ nav .closebtn {
     font-family: var(--third-font);
     font-weight: bold;
     line-height: 1.8;
+    color: var(--white);
 }
 
 /* conference section */
 .facts {
     padding: 5em 0 0;
+    background-color: var(--black);
 }
 
 .text h1 {
@@ -312,7 +410,7 @@ nav .closebtn {
     margin-bottom: 2em;
 }
 
-.line,
+/* .line,
 .line-1,
 .line-4 {
     display: block;
@@ -322,7 +420,7 @@ nav .closebtn {
     top: 0.7em;
     width: 2px;
     height: 170px;
-    background-color: black;
+    background-color: var(--white);
 }
 
 .line-1,
@@ -335,7 +433,7 @@ nav .closebtn {
     top: 0.7em;
     width: 2px;
     height: 197px;
-    background-color: black;
+    background-color: var(--white);
 }
 
 .line-6 {
@@ -346,7 +444,7 @@ nav .closebtn {
     top: 0.7em;
     width: 2px;
     height: 150px;
-    background-color: black;
+    background-color: var(--white);
 }
 
 .line-5 {
@@ -357,23 +455,24 @@ nav .closebtn {
     top: 0.7em;
     width: 2px;
     height: 226px;
-    background-color: black;
-}
+    background-color: var(--white);
+} */
 
 .circle {
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    border: 2px solid black;
+    border: 2px solid var(--orange);
     background: transparent;
 }
 
 .fun h6 {
     font-family: var(--font-family);
+    color: var(--white);
 }
 
 .fun small {
-    color: var(--gray);
+    color: var(--white);
     font-family: var(--second-font);
     display: block;
     margin-bottom: 0.5em;
@@ -384,16 +483,18 @@ nav .closebtn {
 .fun p {
     font-family: var(--third-font);
     font-weight: bold;
+    color: var(--white);
     line-height: 1.8;
 }
 
 /* projects section */
 .projects {
     padding: 5em 1em 2em;
+    background-color: var(--black);
 }
 
 .texts h1 {
-    color: var(--gray);
+    color: var(--white);
     text-transform: uppercase;
     font-family: var(--font-family);
     font-size: 1rem;
@@ -406,7 +507,7 @@ nav .closebtn {
 }
 
 .select a {
-    color: var(--gray);
+    color: var(--white);
     font-family: var(--font-family);
     display: block;
     margin-bottom: 1.5em;
@@ -432,9 +533,9 @@ nav .closebtn {
 }
 
 .patients {
-    background-color: var(--white);
+    background-color: var(--black);
     /* padding: 2em 1em 2.5em; */
-    border: 1px solid var(--gainsboro);
+    border-bottom: 1px solid var(--gainsboro);
     margin-bottom: 2.5em;
 }
 
@@ -449,6 +550,7 @@ nav .closebtn {
 
 .patients h3 {
     font-family: var(--font-family);
+    color: var(--white);
     font-size: 1rem;
     font-weight: bold;
 }
@@ -457,6 +559,7 @@ nav .closebtn {
     font-family: var(--third-font);
     font-weight: bold;
     font-size: 0.9rem;
+    color: var(--white);
 }
 
 .patients h6 {
@@ -465,12 +568,14 @@ nav .closebtn {
     font-weight: bold;
     font-size: 0.8rem;
     margin-bottom: 2em;
+    color: var(--white);
 }
 
 .patients button {
-    background-color: white;
+    background-color: var(--orange);
     border-radius: 5px;
     padding: 0.1em 0.3em;
+    color: var(--white);
     border: none;
     outline: navajowhite;
     box-shadow: var(--shadow);
@@ -485,9 +590,9 @@ nav .closebtn {
 
 .repo a {
     display: block;
-    color: blueviolet;
+    color: white;
     font-family: var(--font-family);
-    text-decoration: none;
+    text-decoration: underline;
     font-size: 0.9rem;
 }
 
@@ -501,8 +606,8 @@ nav .closebtn {
 
 /* footer section */
 .footer {
-    background-color: var(--black);
-    padding: 4em 0;
+    background-color: var(--orange);
+    padding: 2em 0;
 }
 
 .footer h5 {
@@ -511,9 +616,8 @@ nav .closebtn {
 }
 
 .footer h6 {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
-
 
 @media only screen and (min-width:1200px) {
     .profile h6 {
@@ -530,52 +634,16 @@ nav .closebtn {
         display: grid;
     }
 
-    header .containers {
-        padding: 0;
-        background-color: var(--black);
-        position: fixed;
-        padding: 1em 0em 0.5em 5em;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        width: 100%;
-    }
-
-    nav {
-        position: unset;
-        width: 100%;
-        /* height: auto; */
-        background: none;
-        flex: 1;
-        text-align: center;
-    }
-
-    nav ul {
-        width: 100%;
-        position: unset;
-        display: flex;
-        align-items: center;
-        gap: 30px;
-    }
-
-    nav ul li a {
-        color: white;
-        font-size: 1rem;
-        position: relative;
-    }
-
-    .unshow {
-        display: none;
-    }
-    .banner{
+    .banner {
         padding: 8em 0 2em;
+    }
+
+    .left-sidebar #show-burger:checked~.sidenav {
+        width: 10%;
     }
 }
 
 @media only screen and (min-width:790px) {
-    .projects {
-        /* background-color: rebeccapurple; */
-    }
 
     .patients img {
         border-right: 1px solid var(--gainsboro);
@@ -600,6 +668,26 @@ nav .closebtn {
 
     .profile h6 {
         font-size: 1rem;
+    }
+
+    #main {
+        transition: margin-left .5s;
+        padding: 0 0px 0 3em;
+    }
+
+    .banner {
+        padding: 3.5em 1em 2em;
+    }
+
+    .conference,
+    .facts,
+    .projects,
+    .footer {
+        padding: 4.5em 1em 2em;
+    }
+
+    .left-sidebar #show-burger:checked~.sidenav {
+        width: 20%;
     }
 
 }
